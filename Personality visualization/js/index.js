@@ -1,104 +1,130 @@
-var renderer, scene, camera;
-var cubes = [];
-var rot = 0;
-var randomSpeedX=[];
+var container, stats;
+var camera, scene, raycaster, renderer;
 
+var mouse = new THREE.Vector2(), INTERSECTED;
+var radius = 100, theta = 0;
+var object;
 
-
-function init() {
-  scene = new THREE.Scene();
-
-  var W = window.innerWidth,
-  H = window.innerHeight;
-
-  camera = new THREE.PerspectiveCamera(45, W / H, .1, 1000);
-  camera.position.set(0, 55, 85);
-  camera.lookAt(scene.position);
-
-  var spotLight = new THREE.SpotLight(0xFFFFFF);
-  spotLight.position.set(0, 1000, 0);
-  scene.add(spotLight);
-  var spotLight1 = new THREE.SpotLight(0xFFFFFF);
-  spotLight1.position.set(500, 1000, 500);
-  scene.add(spotLight1);
-
-
-  renderer = new THREE.WebGLRenderer({antialias:true});
-  renderer.setClearColor(0x17293a);
-  renderer.setSize(W, H);
-  //renderer.shadowMapEnabled = true;
-
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
-  var mirrowGeometry = new THREE.CircleBufferGeometry(30, 32);
-    var mirrowMaterial = new THREE.MeshNormalMaterial({color:  0xFFFF33});
-    var mesh1 = new THREE.Mesh( mirrowGeometry, mirrowMaterial );
-mesh1.position.x = 5;
-mesh1.position.y = 2;
-   //mesh1.rotation.y = -200;
-  //mesh1.rotation.x =100;
-    scene.add( mesh1 );
-  //Create a two dimensional grid of objects, and position them accordingly
-  for (var x = -20; x < 30; x += 5) { // Start from -35 and sequentially add one every 5 pixels
-    for (var y = -20; y < 30; y += 5) {
-      var boxGeometry = new THREE.BoxGeometry(3, 3, 3);
-      //The color of the material is assigned a random color
-      var boxMaterial = new THREE.MeshLambertMaterial({color:  0xFFFFFF});
-
-
-
-
-if(x==-5 && y ==-5){
-var boxGeometry = new THREE.BoxGeometry(3, 3, 3);
-}else if (x ==5 && y==5){
-    var boxGeometry = new THREE.BoxGeometry(3, 3, 3);
-  }else {
-    var boxGeometry = new THREE.BoxGeometry(3, 3, 3);
-    }
-
-
-
-      var mesh = new THREE.Mesh(boxGeometry, boxMaterial);
-
-      mesh.position.x = x;
-      mesh.position.y = y;
-      mesh.position.z = 2;
-
-
-var randomValueX =(Math.random()*0.1)-0.05;
-randomSpeedX.push(randomValueX)
-
-      scene.add(mesh);
-      cubes.push(mesh);
-    }
-  }
-
-  document.body.appendChild(renderer.domElement);
-}
-
-//var scaleCube = -100;
-var rot =0;
-
-function drawFrame(ts){
-  requestAnimationFrame(drawFrame);
-
-//scaleCube += 0.02 ;
-//if(scaleCube> 100)scaleCube = -100;
-  rot += 0.01;
-
-  //forEach takes all the array entries and passes the c as the object, and i as the index
-  cubes.forEach(function(c, i) {
-//潮水涌动方法
-c.scale.y =Math.sin(ts/500*Math.PI +
-c.position.x*4.95 + c.position.z/10) + 1;
-
-
-  //        cubes[18].rotation.z += randomSpeedX[18];
-
-
-});
-
-  renderer.render(scene, camera);
-}
+var objects = [];
 
 init();
-drawFrame();
+animate();
+
+function init() {
+  container = document.createElement( 'div' );
+  document.body.appendChild( container );
+
+
+  var W = window.innerWidth,
+      H = window.innerHeight;
+  camera = new THREE.PerspectiveCamera(45, W / H, .1, 1000);
+
+
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color( "#0F0F0F" );
+
+  var light = new THREE.DirectionalLight( 0xffffff, 1 );
+  light.position.set( 1, 1, 1 ).normalize();
+  scene.add( light );
+  var spotLight1 = new THREE.SpotLight("#E6E6FA");
+  spotLight1.position.set(100, 500, 100);
+  scene.add(spotLight1);
+
+  var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 );
+
+
+
+  // Model/material loading!
+	var mtlLoader = new THREE.MTLLoader();
+	mtlLoader.load("mirrow.mtl", function(materials){
+
+		materials.preload();
+
+    var objLoader = new THREE.OBJLoader();
+		objLoader.setMaterials(materials);
+
+  		objLoader.load("mirrow.obj", function(mesh){
+  			mesh.traverse(function(node){
+  				if( node instanceof THREE.Mesh ){
+  					node.castShadow = true;
+  					node.receiveShadow = true;
+  				}
+  			});
+
+        mesh.scale.set(2,2,2);
+        mesh.position.z =-300;
+  mesh.position.y = -70;
+  mesh.position.x = 50;
+    mesh.rotation.y = 0.8;
+    mesh.rotation.x = 0.1;
+
+        scene.add(mesh);
+        objects.push(mesh); //Add to the array so that we can access for raycasting
+  		});
+  	});
+
+
+  raycaster = new THREE.Raycaster();
+
+  renderer = new THREE.WebGLRenderer();
+  renderer.setPixelRatio( window.devicePixelRatio );
+  renderer.setSize( window.innerWidth, window.innerHeight );
+  container.appendChild( renderer.domElement );
+
+  //stats = new Stats();
+  //container.appendChild( stats.dom );
+  document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+  document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+  window.addEventListener( 'resize', onWindowResize, false );
+}
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
+function onDocumentMouseMove( event ) {
+  event.preventDefault();
+  mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+  mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+
+}
+function onDocumentMouseDown( event ) {
+  var intersects = raycaster.intersectObjects( objects, true );
+if ( intersects.length > 0 ) {
+  intersects[0].object.material.color.set( Math.random() * 0xffffff);
+}
+
+}
+//
+function animate() {
+  requestAnimationFrame( animate );
+
+  render();
+  //stats.update();
+}
+
+function render() {
+  //Auto rotate camera
+
+
+  //Find intersections
+  raycaster.setFromCamera( mouse, camera );
+  //var intersects = raycaster.intersectObjects( scene.children );
+
+  //var intersects = raycaster.intersectObjects( objects, true );
+
+  //if ( intersects.length > 0 ) {
+    //if ( INTERSECTED != intersects[ 0 ].object ) {
+    //  if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+    //  INTERSECTED = intersects[ 0 ].object;
+    //  INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+    //  INTERSECTED.material.emissive.setHex( Math.random() * 0xffffff);
+  //  }
+  //} else {
+  //  if ( INTERSECTED ) INTERSECTED.material.emissive.setHex( INTERSECTED.currentHex );
+  //  INTERSECTED = null;
+  //}
+  renderer.render( scene, camera );
+}

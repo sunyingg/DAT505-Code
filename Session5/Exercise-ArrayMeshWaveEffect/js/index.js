@@ -35,15 +35,12 @@ function init() {
       var boxMaterial = new THREE.MeshLambertMaterial({color:  0xFFFFFF});
       //mesh.castShadow = true;
 
-/*var texture1 = new THREE.TextureLoader().load(
-  "textures/texture"+ Math.floor(Math.random()*1) +".jpg");
-  var boxMaterial = new THREE.MeshBASICtMaterial
-)*/
+
 
 if(x==-5 && y ==-5){
-  boxMaterial =new THREE.MeshLambertMaterial({color: Math.random() * 0xFFFFFF});
+  boxMaterial =new THREE.MeshLambertMaterial({color:  "#FFEC8B"});
 }else if (x ==5 && y==5){
-    boxMaterial =new THREE.MeshLambertMaterial({color: Math.random() * "#B452CD"});
+    boxMaterial =new THREE.MeshLambertMaterial({color:   "#FFEC8B"});
   }else {
     boxMaterial =new THREE.MeshLambertMaterial({color:  0xFFFFFF});
     }
@@ -54,9 +51,7 @@ if(x==-5 && y ==-5){
 
       mesh.position.x = x;
       mesh.position.z = y;
-      mesh.rotation.x = 360*Math.random();
-      mesh.rotation.y = 360*Math.random();
-      mesh.rotation.z = 360*Math.random();
+    
 
 var randomValueX =(Math.random()*0.1)-0.05;
 randomSpeedX.push(randomValueX)
@@ -69,24 +64,23 @@ randomSpeedX.push(randomValueX)
   document.body.appendChild(renderer.domElement);
 }
 
-//var scaleCube = -100;
+
 var rot =0;
 
 function drawFrame(ts){
   requestAnimationFrame(drawFrame);
 
-//scaleCube += 0.02 ;
-//if(scaleCube> 100)scaleCube = -100;
+
   rot += 0.01;
 
   //forEach takes all the array entries and passes the c as the object, and i as the index
   cubes.forEach(function(c, i) {
-//潮水涌动方法
+//利用方程式来改变物体大小以达到摆动效果
 c.scale.y =Math.sin(ts/500*Math.PI +
 c.position.x*4.95 + c.position.z/10) + 1;
 
 
-  //        cubes[18].rotation.z += randomSpeedX[18];
+
 
 
 });

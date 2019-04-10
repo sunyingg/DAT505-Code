@@ -33,17 +33,9 @@ var gui = null;
 var de2ra = function(degree) {
   return degree*(Math.PI/180);
 };
-// ------------------------------------------------
-
-// -----------------------------------------------------------------------------
-
-// ------------------------------------------------
-// Main Content
-// ------------------------------------------------
-
-// Create a Cube Mesh with basic material ---------
+//建立飞机
 var geometry = new THREE.BoxGeometry(170,100, 100);
-geometry .vertices[1].y-=20;
+geometry .vertices[1].y-=20;//修改顶点大小以完善飞机的形态
 geometry .vertices[1].z+=30;
 geometry .vertices[0].y-=20;
 geometry .vertices[0].z-=30;
@@ -162,17 +154,15 @@ scene.add( mesh8 );
 scene.add( mesh9 );
 scene.add( mesh10 );
   var controller = new function() {
-    this.material1 = color;
+    this.planecolor = color;
     //this.castShadow = true;
 
   }();
   var gui = new dat.GUI();
-  gui.addColor( controller, 'material1', color ).onChange( function() {
-    mesh1.material.color.setHex( dec2hex(controller.boxColor) );
+  gui.addColor( controller, 'planecolor', color ).onChange( function() {
+    mesh1.material.color.setHex( dec2hex(controller.planecolor) );
   });
-  //gui.add( controller, 'castShadow', false ).onChange( function() {
-    //mesh.castShadow = controller.castShadow;
-  //});
+
 
 
 
@@ -197,24 +187,9 @@ var render = function () {
 
   rot += 10;
 
-  //mesh1.rotation.z = rot+1; //Continuously rotate the mesh
-//  mesh1.rotation.y = rot+1;
 
-  //mesh2.rotation.x = rot; //Continuously rotate the mesh
-  //mesh2.rotation.y = rot;
 
-  //mesh3.rotation.x = rot+2; //Continuously rotate the mesh
-  //mesh3.rotation.y = rot+2;
-
-  mesh4.rotation.x = rot+100; //Continuously rotate the mesh
-  //mesh4.rotation.y = rot;
-
-  //mesh5.rotation.x = rot-10; //Continuously rotate the mesh
-  //mesh5.rotation.y = rot+2;
-
-  //mesh7.rotation.x = rot-100; //Continuously rotate the mesh
-  //mesh6.rotation.y = rot+1;
-
+  mesh4.rotation.x = rot+100;
 
 
   // Render the scene

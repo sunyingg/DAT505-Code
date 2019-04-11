@@ -23,8 +23,8 @@ function init() {
   renderer = new THREE.WebGLRenderer({antialias:true});
   renderer.setClearColor(0x17293a);
   renderer.setSize(W, H);
-  //renderer.shadowMapEnabled = true;
 
+//Method of Adding Mouse Control
   controls = new THREE.OrbitControls(camera, renderer.domElement);
 
   //Create a two dimensional grid of objects, and position them accordingly

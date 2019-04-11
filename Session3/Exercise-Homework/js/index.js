@@ -33,7 +33,7 @@ var gui = null;
 var de2ra = function(degree) {
   return degree*(Math.PI/180);
 };
-//建立飞机
+//create the airplane
 var geometry = new THREE.BoxGeometry(170,100, 100);
 geometry .vertices[1].y-=20;//修改顶点大小以完善飞机的形态
 geometry .vertices[1].z+=30;

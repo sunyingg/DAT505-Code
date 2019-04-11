@@ -85,6 +85,8 @@ function onDocumentMouseDown( event ) {
       selectedObject = res.object;
       console.log(selectedObject.scale);
     }
+
+
   }
 }
 
@@ -92,7 +94,6 @@ function onDocumentMouseDown( event ) {
 function onDocumentMouseMove( event ) {
   event.preventDefault();
   if ( selectedObject ) {
-    //selectedObject.material.color.set( '#69f' );
     selectedObject = null;
   }
 
@@ -105,13 +106,10 @@ function onDocumentMouseMove( event ) {
     if ( res && res.object ) {
       selectedObject = res.object;
       selectedObject.material.color.setHex( Math.random() * 0xFFFFFF );
-    //console.log(selectedObject.position);
+
     }
-    if ( res && res.object ) {
-      selectedObject = res.object;
-      selectedObject.scale.setHex( Math.random(),Math.random(),Math.random() );
-    //console.log(selectedObject.position);
-    }
+
+
   }
 }
 

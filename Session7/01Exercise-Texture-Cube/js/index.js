@@ -31,11 +31,7 @@ function init() {
 	cubes.push(mesh);
 }
 
-	// Create a camera
-	// 	Set a Field of View (FOV) of 75 degrees
-	// 	Set an Apsect Ratio of the inner width divided by the inner height of the window
-	//	Set the 'Near' distance at which the camera will start rendering scene objects to 2
-	//	Set the 'Far' (draw distance) at which objects will not be rendered to 1000
+	
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 2, 1000 );
 	// Move the camera 'out' by 30
 	camera.position.z = 30;

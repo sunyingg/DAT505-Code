@@ -16,12 +16,12 @@ function init() {
   var spotLight = new THREE.SpotLight(0xFFFFFF);
   spotLight.position.set(0, 1000, 0);
   scene.add(spotLight);
-  //spotLight.castShadow = true;
+
 
   renderer = new THREE.WebGLRenderer({antialias:true});
   renderer.setClearColor(0x17293a);
   renderer.setSize(W, H);
-  //renderer.shadowMapEnabled = true;
+
 
   controls = new THREE.OrbitControls(camera, renderer.domElement);
 
@@ -31,6 +31,7 @@ function init() {
 
       var boxGeometry = new THREE.BoxGeometry(3, 3, 3);
       //The color of the material is assigned a random color
+//Using coordinates to control the color of a single object
       var boxMaterial = new THREE.MeshLambertMaterial({color:  0xFFFF33});
       if (x==-5 && y==-5){
       boxMaterial = new THREE.MeshLambertMaterial({color: 0xFFFF39 });
@@ -40,7 +41,7 @@ function init() {
       boxMaterial = new THREE.MeshLambertMaterial({color:  0xFFFFFF});
     }
       var mesh = new THREE.Mesh(boxGeometry, boxMaterial);
-      //mesh.castShadow = true;
+
 
       mesh.position.x = x;
       mesh.position.z = y;
@@ -63,14 +64,12 @@ function init() {
 
 function drawFrame(){
   requestAnimationFrame(drawFrame);
+  //Rotate the selected object only
 for (var i =0;i<5; i++){
   cubes[6].rotation.x += randomSpeedX[6];
 cubes[18].rotation.y += randomSpeedY[18];
 }
-  //forEach takes all the array entries and passes the c as the object, and i as the index
-// cubes.forEach(function(c, i) {
-//cubes.rotation.z = rot; //Rotate the object that is referenced in c
-  //});
+
 
   renderer.render(scene, camera);
 }

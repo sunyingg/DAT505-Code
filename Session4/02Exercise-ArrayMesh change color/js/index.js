@@ -27,7 +27,7 @@ function init() {
   renderer.setClearColor(0x17293a);
   renderer.setSize(W, H);
   //renderer.shadowMapEnabled = true;
-
+ //Method of Adding Mouse Control
 controls = new THREE.OrbitControls(camera, renderer.domElement);
 
   //Create a two dimensional grid of objects, and position them accordingly
@@ -40,8 +40,8 @@ console.log("X:" +x+ ",Y : " +y+ ",Z:" +z);
 
       var boxGeometry = new THREE.BoxGeometry(3, 3, 3);
       var boxMaterial = new THREE.MeshLambertMaterial({color:  0xE79796});
-      //The color of the material is assigned a random color
-//修改颜色，以坐标来定
+
+//use Object coordinates to change the color
  if (x >= 0 && y >= 0 && z >= 0){
    boxMaterial = new THREE.MeshLambertMaterial({color: "#FFD700"});
  } else if ( x >= 0 && y >=0 && z <= 0){
@@ -54,51 +54,22 @@ console.log("X:" +x+ ",Y : " +y+ ",Z:" +z);
     boxMaterial = new THREE.MeshLambertMaterial({color: "#87CEEB"});
   } else if ( x <= 0 && y >=0 && z <= 0){
     boxMaterial = new THREE.MeshLambertMaterial({color: "#3A5FCD"});
-  } 
-/*if (x >= 0 && y >= 0){
-  var boxMaterial = new THREE.MeshLambertMaterial({color:  0xFF00FF});
-}
+  }
 
-if (x >= 0 && y <= 0){
-  var boxMaterial = new THREE.MeshLambertMaterial({color:  0xFF0000});
-}
 
-if (x <= 0 && y >= 0){
-  var boxMaterial = new THREE.MeshLambertMaterial({color:  0x0000FF});
-}
-
-if (x <= 0 && y <= 0){
-  var boxMaterial = new THREE.MeshLambertMaterial({color:  0x00FF00});
-}
-*/
-
-    //  var boxMaterial = new THREE.MeshLambertMaterial({color: Math.random() * 0xFFFFFF});
+    ) * 0xFFFFFF});
       var mesh = new THREE.Mesh(boxGeometry, boxMaterial);
-      //mesh.castShadow = true;
+
       mesh.position.x = x;
       mesh.position.z = z;
         mesh.position.y = y;
-    //  mesh.scale.y = 0.5;
+
       scene.add(mesh);
       cubes.push(mesh);
 
 }
 }
 }
-//}
-  /*for (var x = -50; x <= 50; x += 5) { // Start from -45 and sequentially add one every 5 pixels
-    //for (var y = -30; y <= 30; y += 5) {
-      var boxGeometry = new THREE.BoxGeometry(3, 6, 3);
-      //The color of the material is assigned a random color
-      var boxMaterial = new THREE.MeshLambertMaterial({color: Math.random() * 0xFFFFFF});
-      var mesh2 = new THREE.Mesh(boxGeometry, boxMaterial);
-      //mesh.castShadow = true;
-      mesh2.position.x = x;
-      mesh2.position.y = 5;
-      mesh2.position.z = 0;
-      mesh2.scale.y = 0.5;
-      scene.add(mesh2);
-  }*/
 
 
   document.body.appendChild(renderer.domElement);

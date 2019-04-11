@@ -26,6 +26,7 @@ function init() {
 	scene.add( new THREE.AmbientLight( 0xffffff, 0.2 ) );
 	var light = new THREE.PointLight( 0xffffff, 1 );
 	camera.add( light );
+
 for ( a = 0; a < 10; a ++ ) {
 	var material = new THREE.MeshPhongMaterial( {
 		color: 0xffffff,
@@ -87,7 +88,7 @@ function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
-
+//Eyeballs follow the mouse
 function onDocumentMouseMove( event ) {
   mouseX = event.clientX - windowHalfX;
   mouseY = event.clientY - windowHalfY;

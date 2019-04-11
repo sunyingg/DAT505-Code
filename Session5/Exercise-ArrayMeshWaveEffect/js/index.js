@@ -51,7 +51,7 @@ if(x==-5 && y ==-5){
 
       mesh.position.x = x;
       mesh.position.z = y;
-    
+
 
 var randomValueX =(Math.random()*0.1)-0.05;
 randomSpeedX.push(randomValueX)
@@ -75,7 +75,7 @@ function drawFrame(ts){
 
   //forEach takes all the array entries and passes the c as the object, and i as the index
   cubes.forEach(function(c, i) {
-//利用方程式来改变物体大小以达到摆动效果
+//Using the equation to change the scale of the object to achieve the effect of swing
 c.scale.y =Math.sin(ts/500*Math.PI +
 c.position.x*4.95 + c.position.z/10) + 1;
 

@@ -26,13 +26,7 @@ scene.add(light1);
 
 var light2 = new THREE.PointLight(0xffffff, 0.5);
 scene.add(light2);
-// ------------------------------------------------
 
-// -----------------------------------------------------------------------------
-
-// ------------------------------------------------
-// Main Content
-// ------------------------------------------------
 
 // Create a Cube Mesh with basic material ---------
 
@@ -93,6 +87,19 @@ var mesh5 = new THREE.Mesh( geometry2, material10 );
 mesh5.position.z = -1000;
 mesh5.position.x = 200;
 mesh5.position.y = 100;
+var mesh6 = new THREE.Mesh( geometry1, material );
+mesh6.position.z = -1000;
+mesh6.position.x = -100;
+mesh6.position.y = 100;
+var mesh7 = new THREE.Mesh( geometry1, material );
+mesh7.position.z = -1000;
+mesh7.position.x = -100;
+mesh7.position.y = 100;
+
+var mesh8 = new THREE.Mesh( geometry1, material2 );
+mesh8.position.z = -1000;
+mesh8.position.x = 200;
+mesh8.position.y = 100;
 
 
 // ------------------------------------------------
@@ -103,6 +110,9 @@ scene.add( mesh2 );
 scene.add( mesh3 );
 scene.add( mesh4 );
 scene.add( mesh5 );
+scene.add( mesh6 );
+scene.add( mesh7 );
+scene.add( mesh8 );
 
 
 
@@ -112,7 +122,7 @@ var rot = 0;
 var render = function () {
   requestAnimationFrame( render );
 
-  rot += 0.01;
+  rot += 0.09;
 
   mesh1.rotation.x = rot+1; //Continuously rotate the mesh
   mesh1.rotation.y = rot+1;
@@ -128,6 +138,16 @@ var render = function () {
 
   mesh5.rotation.x = rot+2; //Continuously rotate the mesh
   mesh5.rotation.y = rot+2;
+
+  mesh6.rotation.x = rot+1;
+  mesh6.rotation.y = rot+1;
+
+  mesh7.rotation.x = rot+3;
+  mesh7.rotation.y = rot+3;
+
+  mesh8.rotation.x = rot+3;
+  mesh8.rotation.y = rot+3;
+
 
 
 

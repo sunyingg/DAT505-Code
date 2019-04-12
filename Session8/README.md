@@ -10,7 +10,7 @@ This session iS about how to  import obj format model and set the effect of mous
 02Exercise-objLoader-Raycasting
 
 #### 00Exercise-Eyes-Interaction2X
-![alt text]
+![00Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture12.png)
 In this project,The center of the eyeballs move with the mouse.
  ```javascript
  for (var i = 0; i < eyesNum; i++) {
@@ -44,7 +44,7 @@ In this project,The center of the eyeballs move with the mouse.
  ```
 
  #### 01Exercise-RaycastSprite
- ![alt text]
+![00Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture13.png)
  In this project,When the mouse moves to the position of the object, the object will become random color.
 
   ```javascript
@@ -73,7 +73,7 @@ In this project,The center of the eyeballs move with the mouse.
   ```
 
   #### 02Exercise-objLoader-Raycasting
-  ![alt text]
+![02Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture15.png)
   In this project,i imported a rocket model and set it to change color by clicking on the object with the mouse.
    ```javascript
    // Model/material loading

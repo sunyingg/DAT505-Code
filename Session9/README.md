@@ -1,12 +1,12 @@
 Session 9
 ========
 #### Aim of this session ####
-This session iS about how to  Set the effect of mouse clicking or touching objects to make sound
+This session is about how to  Set the effect of mouse clicking or touching objects to make sound
 #### This session has one homework ####
 01Exercise-RaycastAudio
 
 #### 01Exercise-RaycastAudio
-![alt text]
+![02Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture14.png)
 In this project,i qdded the effect of mouse clicking on an object to make a sound
 and 5 maps at the top, and the cubes are dropping constantly.
  ```javascript

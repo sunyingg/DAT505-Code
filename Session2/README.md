@@ -5,7 +5,7 @@ This session iS about how to  modify material parameters and to add textures of 
 #### This session has one homework ####
 Exercise-GeometriesAndMaterials
 #### Exercise-GeometriesAndMaterials
-![alt text]
+![Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture3.png)
 This project is to attach material to two objects and change the rotation method of the circle to achieve the effect of cross rotation.
  ```javascript
  var geometry = new THREE.CubeGeometry( 80, 80,80 );

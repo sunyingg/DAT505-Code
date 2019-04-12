@@ -11,7 +11,7 @@ In this session, I learned how to use for loop functions to create objects and m
 03Exercise-ArryMesh changeRotateandColor
 
 #### 01Exercise-ArryMesh change color
-![alt text]
+![Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture5.png)
 In this project,i cloned the object to x, y and Z separately, added mouse control, and used the range of the object set to modify the object color.
 ```javascript
  //Method of Adding Mouse Control
@@ -61,7 +61,7 @@ console.log("X:" +x+ ",Y : " +y+ ",Z:" +z);
 
 
 #### 02Exercise-ArryMeshRandomSpeed
-![alt text]
+![02Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture6.png)
 In this poject, I cloned cubes and also rotated them at any angle.What is more,i used speed as a set so that all squares move at different speeds.
  ```javascript
  //Method of Adding Mouse Control
@@ -102,7 +102,7 @@ In this poject, I cloned cubes and also rotated them at any angle.What is more,i
 
 
  #### 03Exercise-ArryMesh changeRotateandColor
- ![alt text]
+![03Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture7.png)
  Change only the color of specific objects and make them rotate
  ```javascript
  //Using coordinates to control the color of a single object

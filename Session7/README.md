@@ -1,14 +1,14 @@
 Session 7
 ========
 #### Aim of this session ####
-This session is about how to  randomly generate descending objects of different sizes and maps and generate multiple eyes that can follow the mouse.
+This session is about how to  randomly generate  objects of different sizes and maps and make all objects under the same contro
 #### This session has two homeworks ####
 01Exercise-Texture-CubeGeometry
 
 02Exercise-Eyes-Interaction
 
 #### 01Exercise-Texture-CubeGeometry
-![alt text]
+![01Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture10.png)
 In this project,i randomly generate cubes of different sizes and 5 maps at the top, and the cubes are dropping constantly.
  ```javascript
  //for循环
@@ -56,7 +56,7 @@ cubes[i].position.y -= speed[i];
  ```
 
  #### 02Exercise-Eyes-Interaction
- ![alt text]
+![02Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture11.png)
  In this project,Random generation of multiple eyeballs at different locations that can follow the mouse's rotation
   ```javascript
   for ( a = 0; a < 10; a ++ ) {
@@ -69,6 +69,7 @@ cubes[i].position.y -= speed[i];
 
     var cubescale=(Math.random()*-2)+1;
       mesh = new THREE.Mesh( geometry, material );
+      // generate eyeballs randomly
     	mesh.position.x=(Math.random()*-200)+40;
     	mesh.position.y=(Math.random()*-100)+50;
     	mesh.scale.x=cubescale;
@@ -77,10 +78,11 @@ cubes[i].position.y -= speed[i];
     	scene.add( mesh );
     	cubes.push( mesh );
     }
-    
+
   	var geometry = new THREE.SphereGeometry( 30, 32, 16 );
     function render() {
     	console.log(window.innerHeight)
+      //Make them follow the mouse
     	cubes.forEach(function(c,i){
     	cubes[i].rotation.x = mouseY/window.innerHeight*2;
     	cubes[i].rotation.y = mouseX/window.innerWidth*2;

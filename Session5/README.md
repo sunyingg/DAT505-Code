@@ -7,7 +7,7 @@ his session iS about how to use functions to modify scale of object to achieve  
 Exercise-ArryMeshWaveEffect
 
 #### Exercise-ArryMeshWaveEffect
-![alt text]
+![Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture8.png)
 In this project,i use functions to modify scale of object to achieve  wave effect.
 ```javascript
 function drawFrame(ts){

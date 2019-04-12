@@ -6,7 +6,7 @@ This session is about the method of randomize position and scale of the objects 
 Exercise-CityScape-full
 
 #### Exercise-CityScape-full
-![alt text]
+![Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture9.png)
 In this project, I changed the material of the city to the wireframe.
 ```javascript
 //Settings for models and material

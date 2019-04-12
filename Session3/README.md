@@ -5,7 +5,7 @@ This session iS about how to set up the GUI controller to change the rotation,po
 #### This session has one homework ####
 Exercise-Homework
 #### Exercise-Homework
-![alt text]
+![Exercise](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/Pictures/texture4.png)
 In this poject, I used cubes to build a simple aircraft, changing the speed of a box to simulate the rotation of the blades, and adding the function of changing the color of the airplane.
  ```javascript
  var gui = null;

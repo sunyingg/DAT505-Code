@@ -12,11 +12,11 @@ function init() {
 	// Create a geometry
 	// 	Create a box (cube) of 10 width, length, and height
 	geometry = new THREE.BoxGeometry( 10, 10, 10 );
-	//for循环的方法
+	//for循环
  for (var i =0; i<cubesNum; i++){
 	var randomValue=Math.random() *0.5;
 	speed.push(randomValue);
-	//最后的数字为材质数量
+	//5 means the number of materials
 	var randomSelection=Math.round(Math.random()*5);
 	// Load a texture
 	texture = new THREE.TextureLoader().load("textures/texture"+randomSelection+".jpg");
@@ -31,7 +31,7 @@ function init() {
 	cubes.push(mesh);
 }
 
-	
+
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 2, 1000 );
 	// Move the camera 'out' by 30
 	camera.position.z = 30;

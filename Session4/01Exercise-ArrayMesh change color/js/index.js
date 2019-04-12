@@ -57,7 +57,7 @@ console.log("X:" +x+ ",Y : " +y+ ",Z:" +z);
   }
 
 
-    ) * 0xFFFFFF});
+  
       var mesh = new THREE.Mesh(boxGeometry, boxMaterial);
 
       mesh.position.x = x;

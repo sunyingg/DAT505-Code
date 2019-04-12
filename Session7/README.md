@@ -67,6 +67,24 @@ cubes[i].position.y -= speed[i];
   		map: THREE.ImageUtils.loadTexture('images/eye.png'),
   	});
 
+    var cubescale=(Math.random()*-2)+1;
+      mesh = new THREE.Mesh( geometry, material );
+    	mesh.position.x=(Math.random()*-200)+40;
+    	mesh.position.y=(Math.random()*-100)+50;
+    	mesh.scale.x=cubescale;
+    	mesh.scale.y=cubescale;
+    	mesh.scale.z=cubescale;
+    	scene.add( mesh );
+    	cubes.push( mesh );
+    }
+    
   	var geometry = new THREE.SphereGeometry( 30, 32, 16 );
+    function render() {
+    	console.log(window.innerHeight)
+    	cubes.forEach(function(c,i){
+    	cubes[i].rotation.x = mouseY/window.innerHeight*2;
+    	cubes[i].rotation.y = mouseX/window.innerWidth*2;
+    });
+
 
   ```

@@ -3,10 +3,11 @@ Session 1
 #### Aim of this session ####
 In this session,I mianly learned some basic knowledge about how to create multiple geometries and modify their size and material.
 #### This session has two homework ####
-Exercise-test2  
+00Exercise-test2  
 01Exercise-Homework
 #### 00Exercise-Basicgeometry
-![alt text]
+![alt text]https://github.com/sunyingg/DAT505-Code/tree/master/Pictures/texture1.png
+
 This project is mainly about building two cubes and Making their centers consistent  by changing their positions
  ```javascript
  function geometry(){
@@ -24,6 +25,9 @@ This project is mainly about building two cubes and Making their centers consist
    mesh2.position.z = -1000;
    ```
 #### 01Exercise-Homework ####
+
+![alt text]https://github.com/sunyingg/DAT505-Code/tree/master/Pictures/texture2.png 
+
 This project is to create two spheres and one of them is wireframe,i also Set them to different rotation modes.
  ```javascript
  function geometry(){

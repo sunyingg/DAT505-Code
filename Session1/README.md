@@ -6,7 +6,7 @@ In this session,I mianly learned some basic knowledge about how to create multip
 00Exercise-test2  
 01Exercise-Homework
 #### 00Exercise-Basicgeometry
-![alt text](https://github.com/sunyingg/DAT505-Code/tree/master/Pictures/texture1.png)
+![00Exercise](https://github.com/sunyingg/DAT505-Code/tree/master/Pictures/texture1.png)
 
 This project is mainly about building two cubes and Making their centers consistent  by changing their positions
  ```javascript
@@ -26,7 +26,7 @@ This project is mainly about building two cubes and Making their centers consist
    ```
 #### 01Exercise-Homework ####
 
-![alt text](https://github.com/sunyingg/DAT505-Code/tree/master/Pictures/texture2.png )
+![01Exercise](https://github.com/sunyingg/DAT505-Code/tree/master/Pictures/texture2.png )
 
 This project is to create two spheres and one of them is wireframe,i also Set them to different rotation modes.
  ```javascript

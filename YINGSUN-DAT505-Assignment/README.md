@@ -3,6 +3,7 @@
 
 #### Name:Ying Sun
 #### Stduent Code:B161006084
+[Github link](https://github.com/sunyingg/DAT505-Code/tree/master/YINGSUN-DAT505-Assignment)
 ------
 ### Catlog
 YINGSUN-DAT505-Assignment
@@ -46,12 +47,12 @@ sketch:
 ##### about the models
 
 I revised the basic draft and then redesigned the image of marine creatures and girls to make it more easy to be built.In fact, I've adjusted the character modeling design to a great extent, because the original design was too difficult for me.
-![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/10.jpg)
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/8.png)
 
 
-![alt text](<https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/8.jpg
+![alt text](<https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/9.png
   )
-![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/9.jpg)|
+
 
 
 Then i used 3D Max to build models and make maps for them. I also set animations in 3dmax, and import the final model into the web page.

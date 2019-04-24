@@ -50,7 +50,7 @@ I revised the basic draft and then redesigned the image of marine creatures and 
 ![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/8.png)
 
 
-![alt text](<https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/9.png
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/9.png
   )
 
 

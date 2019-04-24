@@ -17,10 +17,201 @@ The girl in the picture is looking at the mirror, which shows the reflection of 
 It was inspired by the Darjeeling Limited which is my favourite movie,after i analyzed it,i found that I was most interested in the personality conflicts of the characters, so I drew a sketch.
 Then I thought it would be more interesting and special to make it into a 3d model.Therefore, i s tarted to finish this work.
 
-analysis: 
+analysis:
 ![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/14.png)
 
 
 
 sketch:
 ![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/1.png)
+
+
+### Design Process
+##### about the models
+
+I revised the basic draft and then redesigned the image of marine creatures and girls to make it more easy to be built.In fact, I've adjusted the character modeling design to a great extent, because the original design was too difficult for me.
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/10.jpg)
+
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/8.jpg)
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/9.jpg)
+
+Then i use 3D Max to build models and make maps for them. I also set animations in 3dmax, and import the final model into the web page.
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/2.png)
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/4.png)
+##### about the skybox
+At first, I just wanted to insert a picture in the background, but after looking at the effect, I found that it was monotonous, so I added a sky box.The map of skybox is painted with PS. I designed it in sketchbook first, and then improved it on the basis of draft.
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/12.jpg)
+![alt text](https://raw.githubusercontent.com/sunyingg/DAT505-Code/master/screenshots/13.png)
+##### about another code
+In this project, I also used some code to improve the overall effect.
+
+1. The effect of snowflakes
+
+```javascript
+geometry = new THREE.SphereGeometry(0.09, 1, 1);
+
+for (var i = 0; i < cubesNum; i++) {
+    var randomValue = Math.random() * 0.5;
+    speed.push(randomValue);
+    var randomSelection = Math.round(Math.random() * 5);
+    // Load a texture
+    material = new THREE.PointsMaterial({
+        depthTest: false
+    });
+
+
+    // Combine the geometry and material into a mesh
+    mesh = new THREE.Mesh(geometry, material);
+    for (var i = 0; i < cubes.length; i++) {
+        // Rotate the x position of the mesh by 0.03
+        cubes[i].rotation.x += 0.02;
+        // Rotate the y position of the mesh by 0.02
+        cubes[i].rotation.y += 0.02;
+        //Move the mesh towards the bottom of the screen
+        cubes[i].position.y -= speed[i];
+        //make it appear on the top.
+        if (cubes[i].position.y < 0) {
+            cubes[i].position.y = 30;
+            cubes[i].position.x = (Math.random() * -40) + 20;
+       }
+
+```
+
+
+2. Cactus created by cubes
+
+```javascript
+var geometry2 = new THREE.BoxGeometry(10, 3, 3);
+var boxMaterial = new THREE.MeshBasicMaterial({color: '#696969'});
+var mesh2 = new THREE.Mesh( geometry2,boxMaterial);
+    mesh2.position.x = -25;
+    mesh2.position.y = -10;
+    mesh2.position.z = -10;
+    mesh2.rotation.z =10;
+
+    group.add( mesh2 );
+
+ var geometry3 = new THREE.BoxGeometry(10, 3, 3);
+ var mesh3 = new THREE.Mesh( geometry3,boxMaterial);
+      mesh3.position.x = -35;
+      mesh3.position.y = -15;
+      mesh3.position.z = -10;
+      mesh3.rotation.z =-10;
+
+    group.add( mesh3 );
+
+var geometry4 = new THREE.BoxGeometry(3, 20, 3);
+var mesh4 = new THREE.Mesh(geometry4, boxMaterial);
+      mesh4.position.x = -30;
+      mesh4.position.y = -15;
+      mesh4.position.z =  -10;
+
+      group.add(mesh4);
+
+```
+3. Set Sky Box to Fill in the Screen
+
+```javascript
+var texturesSky = getTexturesFromAtlasFile("textures/place1.png", 6);
+
+var materialsSky = [];
+for (var i = 0; i < 6; i++) {
+    materialsSky.push(new THREE.MeshBasicMaterial({ map: texturesSky[i] }));
+}
+//create the skybox
+var skygeometry=new THREE.BoxBufferGeometry(1, 1, 1)
+var skyBox = new THREE.Mesh(skygeometry, materialsSky);
+skyBox.position.x = 0;
+ skyBox.position.y = 25;
+skyBox.position.z = -10;
+skyBox.rotateY(45);
+skyBox.geometry.scale(100, 100, -100);
+scene.add(skyBox);
+function getTexturesFromAtlasFile(atlasImgUrl, tilesNum) {
+    var textures = [];
+    for (var i = 0; i < tilesNum; i++) {
+        textures[i] = new THREE.Texture();
+    }
+    //Use the image loader
+    var imageObj = new Image();
+    imageObj.onload = function () {
+        var canvas, context;
+        var tileWidth = imageObj.height;
+        for (var i = 0; i < textures.length; i++) {//to split six pictures.
+          // draw part of it on a canvas
+            canvas = document.createElement('canvas');
+            context = canvas.getContext('2d');
+            canvas.height = tileWidth;
+            canvas.width = tileWidth;
+            context.drawImage(imageObj, tileWidth * i, 0, tileWidth, tileWidth, 0, 0, tileWidth, tileWidth);
+            textures[i].image = canvas;
+            textures[i].needsUpdate = true;
+        }
+    };
+    imageObj.src = atlasImgUrl;
+    return textures;
+}
+```
+4.Mouse click effect
+
+```javascript
+function onDocumentMouseDown(event) {
+    event.preventDefault();
+
+
+
+    var intersects = getIntersects(event.layerX, event.layerY);
+    if (intersects.length > 0) {
+        var res = intersects.filter(function (res) {
+            return res && res.object;
+        })[0];
+        if (res && res.object) {
+            selectedObject = res.object;
+              action.play();
+
+        }
+    }
+}
+//mouse up and the animation wil stop
+function onDocumentMouseUp() {
+    action.stop();
+}
+
+function getIntersects(x, y) {
+    x = (x / window.innerWidth) * 2 - 1;
+    y = - (y / window.innerHeight) * 2 + 1;
+    mouseVector.set(x, y, 0.5);
+    raycaster.setFromCamera(mouseVector, camera);
+    return raycaster.intersectObject(GROUP, true);
+}
+
+```
+5. Setting up camera rotation
+
+```javascript
+//define an angle variable theta
+        theta += 0.001;
+  camera.position.x = radius * Math.sin( THREE.Math.degToRad( theta ) );
+  camera.position.y = radius * Math.sin( THREE.Math.degToRad( theta ) );
+  //camera.position.z = radius * Math.cos( THREE.Math.degToRad( theta ) );
+  camera.lookAt( scene.position );
+```
+6. Loading music
+
+```javascript
+// create an AudioListener and add it to the camera
+var listener = new THREE.AudioListener();
+camera.add( listener );
+
+// create a global audio source
+var sound = new THREE.Audio( listener );
+
+// load a sound and set it as the Audio object's buffer
+var audioLoader = new THREE.AudioLoader();
+audioLoader.load( 'audio/ghost duet.mp3', function( buffer ) {
+sound.setBuffer( buffer );
+sound.setLoop( true );
+sound.setVolume( 0.5 );
+sound.play();
+});
+```

@@ -6,4 +6,4 @@ This is a directory that includes Ying Sun's code project for DAT505 module
 #  Practice during weeks 1 – 3
 Each  session folder has a separate 'read me'
 # Final work---YINGSUN-DAT505-Assignment
-https://github.com/sunyingg/DAT505-Code/tree/master/YINGSUN-DAT505-Assignment
+https://github.com/sunyingg/DAT505-Code/tree/master/YingSun-DAT505-Assignment

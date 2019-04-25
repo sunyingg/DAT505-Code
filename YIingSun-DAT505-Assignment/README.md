@@ -3,7 +3,7 @@
 
 #### Name:Ying Sun
 #### Stduent Code:B161006084
-[Github link](https://github.com/sunyingg/DAT505-Code/tree/master/YINGSUN-DAT505-Assignment)
+[Github link](https://github.com/sunyingg/DAT505-Code/tree/master/YingSun-DAT505-Assignment)
 ------
 ### Catlog
 YINGSUN-DAT505-Assignment
@@ -19,7 +19,8 @@ YINGSUN-DAT505-Assignment
 
 ------
 ### Introduction
-This project is mainly about displaying a  3D painting .It also has a dynamic display.The models and maps in the pictures are all designed by me.The raycaster is used to make a mouse click to play the animation. In addition, there are snowflakes like falling blocks and cactus made of cube in the picture.i also  add music into the index.
+This project is mainly about displaying a  3D painting .It also has a dynamic display，when you touch the models,the animation that comes with the model will start playing.The models and maps in the pictures are all designed by me.The raycaster is used to make a mouse click to play the animation. In addition, there are snowflakes effect and cactus made of cube in the picture.i also add a skybox into the index. The camera keeps rotating to show the scene in many directions.
+##### ps.The index can only be opened with Microsoft Edge,and the models will take some time to load
 
 ------
 ### Design details and purpose

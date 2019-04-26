@@ -2,7 +2,7 @@
 ------
 
 #### Name:Ying Sun
-#### Stduent Code:B161006084
+#### NUA Student ID:B161006084
 [Github link](https://github.com/sunyingg/DAT505-Code/tree/master/YingSun-DAT505-Assignment)
 ------
 ### Catlog
